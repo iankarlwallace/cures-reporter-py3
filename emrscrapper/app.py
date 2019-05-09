@@ -2,9 +2,16 @@
 # Cures-Reporter Script
 #
 
+import common.patient as pt
+import common.credentials as cred
+
+import argparse
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+
+
+
 
 fp = webdriver.FirefoxProfile()
 fp.set_preference('browser.helperApps.alwaysAsk.force', False)
