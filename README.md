@@ -9,3 +9,11 @@ Hope is to take Excel spreadsheet as input and then construct:
 Was initially impleneted in Node.js
 Migrating to python3 due to what appears to be better scripting
 tool support for computer vision tools.
+
+Attempting to use pipenv to manage depdencies during development
+$> pipenv shell
+... produces subshell with environment setup to run correctly ...
+... use exit to return to top level shell ...
+$> pipenv install <module> so that it will be placed in the
+correct location
+
