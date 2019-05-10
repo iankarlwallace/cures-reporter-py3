@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 selenium = "*"
 argparse = "*"
+pyautogui = "*"
+openpyxl = "*"
 
 [requires]
 python_version = "3.7"
