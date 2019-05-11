@@ -2,7 +2,7 @@
 # The library needs to be in the Excel files directory to work correctly (that's what the docs report)
 #
 
-import sys
+import sys, os
 import openpyxl
 import config
 import logging
@@ -13,10 +13,19 @@ class Dbtools:
     def __init__(self):
         None
 
+    def _is_file_rw(self, file):
+        if os.access(file, os.R_OK|os.W_OK ):
+            return True
+        else:
+            return False
+
     def load_patients(self):
         ptList = []
         mLog = logging.getLogger('root')
-        wb = openpyxl.load_workbook(config.XLSX_FILE, data_only=True)
+        if self._is_file_rw(config.XLSX_FILE):
+            wb = openpyxl.load_workbook(config.XLSX_FILE, data_only=True)
+        else:
+            raise OSError('File ' + config.XLSX_FILE + ' not accessible.')
         sheet = wb.get_sheet_by_name('Sheet1')
         for row in sheet.iter_rows(min_row=2):
             # Foreach row we should create a patient object and add to our object map
