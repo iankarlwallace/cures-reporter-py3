@@ -11,6 +11,7 @@ class Curestools:
     def __init__(self, creds):
         self.fp = self._setup_firefox_profile()
         self.wd = webdriver.Firefox(firefox_profile = self.fp)
+        self.wd.maximize_window()
         self.wd.implicitly_wait(3)
         self.creds = creds
 
@@ -19,7 +20,7 @@ class Curestools:
 
     def _setup_firefox_profile(self):
         fp = webdriver.FirefoxProfile()
-        fp.set_preference('browser.helperApps.alwaysAsk.force', False)
+        fp.set_preference('browser.helperApps.neverAsk.openFile','application/octet-stream,application/x-ica')
         return fp
 
     def _fill_element_by_name(self, elemName, value):
