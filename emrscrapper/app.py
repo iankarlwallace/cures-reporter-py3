@@ -8,7 +8,7 @@
 #
 
 import argparse
-import config 
+import config
 import sys
 import time
 
@@ -25,10 +25,22 @@ def run():
     mLog.debug('Parsing of command line args %s', sys.argv)
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-cu','--cures-username',help="CURES website username")
-    parser.add_argument('-cp','--cures-password',help="CURES website password")
-    parser.add_argument('-eu','--emr-username',help="EMR website username")
-    parser.add_argument('-ep','--emr-password',help="EMR website password")
+    parser.add_argument('-cu',
+        '--cures-username',
+        required=True,
+        help="CURES website username")
+    parser.add_argument('-cp',
+        '--cures-password',
+        required=True,
+        help="CURES website password")
+    parser.add_argument('-eu',
+        '--emr-username',
+        required=True,
+        help="EMR website username")
+    parser.add_argument('-ep',
+        '--emr-password',
+        required=True,
+        help="EMR website password")
     args = parser.parse_args()
 
     mLog.debug('Args %s', args)
@@ -41,7 +53,5 @@ def run():
 
     mCures = cures.Curestools(mCred)
     mCures.login()
-    time.sleep(10)
-    mCures.__del__()
     time.sleep(10)
     mLog.debug('Finished EMR Scrapper')

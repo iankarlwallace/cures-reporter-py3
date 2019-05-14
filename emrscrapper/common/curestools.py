@@ -14,13 +14,16 @@ class Curestools:
         self.creds = creds
 
     def __del__(self):
-        self.browser.quit()
+        None
 
     def login(self):
         self.browser.goto_url(config.CURES_HOME_URL)
-        assert 'State of California Department of Justice TST02' in self.browser.wd.title
+        self.browser.assert_in_title('State of California Department of Justice TST02')
         self.browser.fill_element_by_name('USER', self.creds.getCuresUsername())
         self.browser.fill_element_by_name('PASSWORD', self.creds.getCuresPassword())
-        self.broser.click_element_by_xpath('//*[@id="loginForm"]/div[1]/span/input')
+        self.browser.click_element_by_xpath('//*[@id="loginForm"]/div[1]/span/input')
         time.sleep(10)
         return
+
+    def par(self, pateint):
+        None
