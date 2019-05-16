@@ -46,6 +46,11 @@ class Browser:
         element.clear()
         element.send_keys(value)
 
+    def click_element_by_id(self, elemName):
+        self.mLog.debug('Click element by id ' + elemName)
+        element = self.wd.find_element_by_id(elemName)
+        element.click()
+
     def click_element_by_name(self, elemName):
         self.mLog.debug('Click element by name ' + elemName)
         element = self.wd.find_element_by_name(elemName)

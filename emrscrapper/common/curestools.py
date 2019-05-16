@@ -4,8 +4,6 @@
 import common.browser
 import config
 import time
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
 class Curestools:
 

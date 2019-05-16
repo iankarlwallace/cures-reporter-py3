@@ -9,3 +9,4 @@ CURES_HOME_URL = 'https://cures.doj.ca.gov'
 EMR_HOME_URL = 'https://vchaca.cernerworks.com'
 XLSX_DIR = os.path.join(ROOT_DIR,'..','xlsx')
 XLSX_FILE = os.path.join(XLSX_DIR,'c_s5to11_18_c.xlsx')
+IMG_DIR = os.path.join(ROOT_DIR,'..','images','')

@@ -51,7 +51,11 @@ def run():
     patients = db.Dbtools().load_patients()
     mLog.debug('Found [' + str(len(patients)) + '] patients.')
 
-    mCures = cures.Curestools(mCred)
-    mCures.login()
+    # mCures = cures.Curestools(mCred)
+    # mCures.login()
+    mEmr = emr.Emrtools(mCred)
+    mEmr.login()
+    time.sleep(5)
+    mEmr.logout()
     time.sleep(10)
     mLog.debug('Finished EMR Scrapper')

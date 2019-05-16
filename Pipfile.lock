@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2412df434042ee9cb6da78f4eee90344da9cf14bf61e2899c062185ee04882a4"
+            "sha256": "27a34958d060c8efdecf38299f13536c80dfee45c2fa6aa3cfc9fce6d5a00878"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -105,6 +105,13 @@
                 "sha256:dcdd1b20fb6366697d1a0ce9afbfe467799d9294cfb8f2ba5d9cd66a33aceedc"
             ],
             "version": "==0.1.20"
+        },
+        "python3-xlib": {
+            "hashes": [
+                "sha256:dc4245f3ae4aa5949c1d112ee4723901ade37a96721ba9645f2bfa56e5b383f8"
+            ],
+            "index": "pypi",
+            "version": "==0.15"
         },
         "pytweening": {
             "hashes": [
