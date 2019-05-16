@@ -17,3 +17,23 @@ $> pipenv shell
 $> pipenv install <module> so that it will be placed in the
 correct location
 
+Having problems with black screenshots for pyguiauto?  Seems that
+won't work correctly with Wayland ... so you have to turn that
+off in GDM as follows (/etc/gdm/custom.conf):
+
+# GDM configuration storage
+
+[daemon]
+# Uncomment the line below to force the login screen to use Xorg
+WaylandEnable=false
+
+[security]
+
+[xdmcp]
+
+[chooser]
+
+[debug]
+# Uncomment the line below to turn on debugging
+#Enable=true
+
