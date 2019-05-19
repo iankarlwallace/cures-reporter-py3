@@ -84,9 +84,9 @@
         },
         "pygetwindow": {
             "hashes": [
-                "sha256:e51e173f2ce8a6a9260fde7f0cf4d15df99ea0d622fad67a400f3e9d6a8a67f2"
+                "sha256:16aff71832f58b31aad0b2f6e0152108c94ddd9942c9bce926a879ffc0c70857"
             ],
-            "version": "==0.0.4"
+            "version": "==0.0.5"
         },
         "pymsgbox": {
             "hashes": [
@@ -102,9 +102,9 @@
         },
         "pyscreeze": {
             "hashes": [
-                "sha256:dcdd1b20fb6366697d1a0ce9afbfe467799d9294cfb8f2ba5d9cd66a33aceedc"
+                "sha256:e798b618acf6836ef5479c2665322d096dfd786b2a38c516a531daa5dfc09915"
             ],
-            "version": "==0.1.20"
+            "version": "==0.1.21"
         },
         "python3-xlib": {
             "hashes": [

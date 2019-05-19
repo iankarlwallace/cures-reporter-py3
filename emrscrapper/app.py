@@ -53,9 +53,15 @@ def run():
 
     # mCures = cures.Curestools(mCred)
     # mCures.login()
+
+    mLog.debug('Starting EMR Scrapper Logging in.')
     mEmr = emr.Emrtools(mCred)
     mEmr.login()
-    time.sleep(5)
-    mEmr.logout()
     time.sleep(10)
+    mLog.debug('Searching for patient.')
+    mEmr.search('911910')
+    time.sleep(5)
+    mLog.debug('Logging out.')
+    mEmr.logout()
+    time.sleep(5)
     mLog.debug('Finished EMR Scrapper')
