@@ -58,18 +58,22 @@ class Emrtools:
         self._pag_type(mrn)
         self._pag_click('powerchart-search-glass.png')
         self._pag_click('powerchart-search-ok-btn.png')
+        time.sleep(1)
         try:
             self._pag_locate('powerchart-assign-relationship.png')
             self._pag_click('powerchart-relationship-outpatient-provider.png')
             self._pag_click('powerchart-ok-btn.png')
         except (ImageNotFoundException, TypeError):
+            self.mLog.debug('Assign relationship not found.')
             None
+        time.sleep(1)
         try:
             self._pag_locate('discern-alert-vaccination-necessary.png')
             self._pag_click('powerchart-ok-btn.png')
         except (ImageNotFoundException, TypeError):
+            self.mLog.debug('Discern alert vaccine not found.')
             None
-        time.sleep(2)
+        time.sleep(1)
         self._pag_click('powerchart-close-single-chart.png')
         self.mLog.debug('Search for MRN [' + mrn +'] complete.')
         
