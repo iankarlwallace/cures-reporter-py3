@@ -40,10 +40,10 @@ class Patient:
         self.lname
 
     def getMrn(self):
-        return self.mrn
+        return str(self.mrn)
 
     def setMrn(self, mrn):
-        self.mrn = mrn
+        self.mrn = str(mrn)
 
     def getDOB(self, dob):
         return self.dob

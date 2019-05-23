@@ -57,11 +57,14 @@ def run():
     mLog.debug('Starting EMR Scrapper Logging in.')
     mEmr = emr.Emrtools(mCred)
     mEmr.login()
-    time.sleep(10)
-    mLog.debug('Searching for patient.')
-    mEmr.search('911910')
     time.sleep(5)
-    mLog.debug('Logging out.')
+
+    for patient in patients:
+        mLog.debug('Looking up patient ' + patient.getFirstname() + ' ' + patient.getLastname())
+        mLog.debug('MRN for lookup ' + patient.getMrn())
+        mEmr.search(patient.getMrn())
+
+    mLog.debug('Finished logging out.')
     mEmr.logout()
     time.sleep(5)
     mLog.debug('Finished EMR Scrapper')

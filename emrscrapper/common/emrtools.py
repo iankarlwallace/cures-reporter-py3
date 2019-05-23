@@ -12,7 +12,7 @@ class Emrtools:
     def __init__(self, creds):
         self.browser = common.browser.Browser()
         self.creds = creds
-        pyautogui.PAUSE=2
+        pyautogui.PAUSE=2.5
 
     def __del__(self):
         None
@@ -22,7 +22,7 @@ class Emrtools:
         return
 
     def _pag_type(self, txt):
-        pyautogui.typewrite(txt, interval=0.1)
+        pyautogui.typewrite(txt)
         return
 
     def _pag_locate(self, img):
@@ -51,10 +51,12 @@ class Emrtools:
             self._pag_click('powerchart-ok-btn.png')
         except (ImageNotFoundException, TypeError):
             None
+        time.sleep(2)
+        self._pag_click('powerchart-close-single-chart.png')
         
 
     def logout(self):
-        time.sleep(5)
+        time.sleep(2)
         cur_screen = pyautogui.screenshot(config.IMG_DIR + 'current-screen.png')
         self._pag_click('cerner-task-btn.png')
         self._pag_click('cerner-exit-btn.png')

@@ -11,6 +11,7 @@ argparse = "*"
 pyautogui = "*"
 openpyxl = "*"
 python3-xlib = "*"
+tesseract = "*"
 
 [requires]
 python_version = "3.7"
