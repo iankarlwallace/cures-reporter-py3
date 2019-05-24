@@ -1,0 +1,13 @@
+#!/bin/bash -x 
+#
+# Start XVfb for running tests (export display)
+#
+
+export DISPLAY=:99
+pkill -u $USER Xvfb
+sleep 1
+Xvfb $DISPLAY -screen 0 1920x1080x24 &
+sleep 1
+fluxbox 2>/dev/null &
+sleep 1
+x11vnc -bg -forever -nopw -quiet -listen localhost -display $DISPLAY &
