@@ -21,7 +21,7 @@ import common.patient as pt
 
 def run():
     mLog = log.getLogger()
-    mLog.debug('Starting EMR Scrapper')
+    mLog.info('Starting EMR Scrapper')
     mLog.debug('Parsing of command line args %s', sys.argv)
 
     parser = argparse.ArgumentParser()
@@ -64,7 +64,7 @@ def run():
         mLog.debug('MRN for lookup ' + patient.getMrn())
         mEmr.search(patient.getMrn())
 
-    mLog.debug('Finished logging out.')
+    mLog.info('Finished logging out.')
     mEmr.logout()
     time.sleep(5)
-    mLog.debug('Finished EMR Scrapper')
+    mLog.info('Finished EMR Scrapper')

@@ -3,8 +3,12 @@
 # Should include basics of downloading ICA file and XLSX files automatically
 
 import logging
+from selenium.common.exceptions import TimeoutException
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 class Browser:
 
@@ -58,5 +62,10 @@ class Browser:
 
     def click_element_by_xpath(self, elemXpath):
         self.mLog.debug('Click element by Xpath ' + elemXpath)
-        element = self.wd.find_element_by_xpath(elemXpath)
-        element.click()
+        try:
+            ep = EC.presence_of_element_located((By.XPATH, elemXpath))
+            WebDriverWait(self.wd, 30).until(ep)
+            element = self.wd.find_element_by_xpath(elemXpath)
+            element.click()
+        except TimeoutException:
+            print('Time out waiting for [' + elemXpath + ']')
