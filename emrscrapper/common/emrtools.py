@@ -31,8 +31,8 @@ class Emrtools:
 
     def _pag_locate(self, img):
         self.mLog.debug('Locate [' + img +']')
-        pyautogui.locateOnScreen(config.IMG_DIR + img, grayscale=True)
-        return
+        screen_location = pyautogui.locateOnScreen(config.IMG_DIR + img, grayscale=True)
+        return screen_location
 
     def login(self):
         self.browser.goto_url(config.EMR_HOME_URL)
@@ -40,9 +40,22 @@ class Emrtools:
         self.browser.fill_element_by_name('username',self.creds.getEmrUsername())
         self.browser.fill_element_by_name('password',self.creds.getEmrPassword())
         self.browser.click_element_by_id('loginBtn')
-        time.sleep(5)
+        time.sleep(3)
         self.browser.click_element_by_xpath('//*[@id="myapps-container"]/div[12]/a/img')
-        time.sleep(8)
+        time.sleep(3)
+        try:
+            time.sleep(2)
+            username_loc = self._pag_locate('powerchart-username-login.png')
+            self.mLog.debug('Username location [' + str(username_loc) +']')
+            self._pag_type(self.creds.getEmrUsername())
+            time.sleep(2)
+            self._pag_locate('powerchart-password-login.png')
+            self._pag_type(self.creds.getEmrPassword())
+            time.sleep(2)
+            self._pag_click('powerchart-ok-login.png')
+            time.sleep(2)
+        except (ImageNotFoundException, TypeError):
+            None
         return
 
     def search(self, mrn):
@@ -62,14 +75,14 @@ class Emrtools:
         try:
             self._pag_locate('powerchart-assign-relationship.png')
             self._pag_click('powerchart-relationship-outpatient-provider.png')
-            self._pag_click('powerchart-ok-btn.png')
+            self._pag_click('powerchart-search-ok-btn.png')
         except (ImageNotFoundException, TypeError):
             self.mLog.debug('Assign relationship not found.')
             None
         time.sleep(1)
         try:
             self._pag_locate('discern-alert-vaccination-necessary.png')
-            self._pag_click('powerchart-ok-btn.png')
+            self._pag_click('discern-alert-ok-btn.png')
         except (ImageNotFoundException, TypeError):
             self.mLog.debug('Discern alert vaccine not found.')
             None

@@ -12,6 +12,8 @@ pyautogui = "*"
 openpyxl = "*"
 python3-xlib = "*"
 tesseract = "*"
+pymsgbox = "*"
+pytweening = "*"
 
 [requires]
 python_version = "3.7"
